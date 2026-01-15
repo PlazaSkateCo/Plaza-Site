@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8" />
+  <title>PLAZA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    /* ===============================
+       RESET + BASE
+       =============================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Inter, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: #eaeaea;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ===============================
+       SCROLL DOT LINE
+       =============================== */
+    .scroll-line {
+      position: fixed;
+      left: 50%;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.35) 1px, transparent 1px);
+      background-size: 2px 18px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ===============================
+       HEADER
+       =============================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      z-index: 100;
+      background: rgba(11, 11, 11, 0.85);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      margin-left: 18px;
+      font-size: 13px;
+      letter-spacing: 0.4em;
+      cursor: pointer;
+    }
+
+    /* ===============================
+       HAMBURGER
+       =============================== */
+    .menu-btn {
+      width: 22px;
+      cursor: pointer;
+    }
+
+    .menu-btn span {
+      display: block;
+      height: 2px;
+      background: #eaeaea;
+      margin: 5px 0;
+    }
+
+    /* ===============================
+       FULLSCREEN MENU
+       =============================== */
+    .menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 11, 11, 0.96);
+      backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      z-index: 150;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .menu.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .menu a {
+      font-size: 28px;
+      letter-spacing: 0.35em;
+    }
+
+    /* ===============================
+       MAIN
+       =============================== */
+    main {
+      padding-top: 64px;
+    }
+
+    /* ===============================
+       SECTION HEADERS
+       =============================== */
+    .section-title {
+      padding: 80px 24px 24px;
+      font-size: 13px;
+      letter-spacing: 0.35em;
+    }
+
+    /* ===============================
+       PRODUCT GRID (1000x1000)
+       =============================== */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 26px;
+      padding: 0 24px 60px;
+    }
+
+    .product-card {
+      cursor: pointer;
+    }
+
+    .product-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: 0.35s ease;
+    }
+
+    .product-card:hover img {
+      filter: grayscale(0%);
+      transform: scale(1.02);
+    }
+
+    .product-card span {
+      display: block;
+      margin-top: 10px;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="scroll-line"></div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="menu-btn" id="menuBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="logo" id="logo">PLAZA</div>
+  </header>
+
+  <!-- MENU -->
+  <nav class="menu" id="menu">
+    <a href="#" id="homeLink">HOME</a>
+    <a href="https://www.redbubble.com/people/PlazaSkateCo/shop" target="_blank">SHOP</a>
+  </nav>
+
+  <!-- MAIN -->
+  <main id="top">
+
+    <!-- REPEAT THIS STRUCTURE FOR EACH DESIGN -->
+
+    <div class="section-title">LOGO</div>
+    <section class="product-grid">
+      <div class="product-card"><img src="Logo T.JPG"><span>T-SHIRT</span></div>
+      <div class="product-card"><img src="Logo Hoodie.JPG"><span>HOODIE</span></div>
+      <div class="product-card"><img src="Logo Hat.JPG"><span>HAT</span></div>
+      <div class="product-card"><img src="Logo Stickerr.JPG"><span>STICKER</span></div>
+    </section>
+
+    <div class="section-title">MULTICOLOR</div>
+    <section class="product-grid">
+      <div class="product-card"><img src="Multi T.JPG"><span>T-SHIRT</span></div>
+      <div class="product-card"><img src="Multi Hat.JPG"><span>DAD HAT</span></div>
+      <div class="product-card"><img src="Multi Mag.JPG"><span>Magnet</span></div>
+    </section>
+
+    <div class="section-title">LETTER</div>
+    <section class="product-grid">
+      <div class="product-card"><img src="Letter Hat.JPG"><span>DAD HAT</span></div>
+      <div class="product-card"><img src="Letter T.JPG"><span>PREMIUM T-Shirt</span></div>
+    </section>
+
+    <div class="section-title">RETAIL</div>
+    <section class="product-grid">
+      <div class="product-card"><img src="Retail Hoodie.JPG"><span>OVERSIZED HOODIE</span></div>
+      <div class="product-card"><img src="Retail Sticker.JPG"><span>STICKER</span></div>
+    </section>
+
+    <div class="section-title">FAMILY FRIENDLY</div>
+    <section class="product-grid">
+      <div class="product-card"><img src="FF TT.JPG"><span>OVERSIZED T-SHIRT</span></div>
+      <div class="product-card"><img src="FF Hat.JPG"><span>DAD HAT</span></div>
+    </section>
+
+    <div class="section-title">MOTEL</div>
+<section class="product-grid">
+  <div class="product-card">
+    <img src="Motel T.JPG" alt="Motel T-Shirt">
+    <span>FITTED T-SHIRT</span>
+  </div>
+  <div class="product-card">
+    <img src="Motel Tote.JPG" alt="Motel Tote">
+    <span>TOTEBAG</span>
+  </div>
+</section>
+
+<div class="section-title">PLEASURE</div>
+<section class="product-grid">
+  <div class="product-card">
+    <img src="Pleasure T.JPG" alt="Pleasure T-Shirt">
+    <span>T-SHIRT</span>
+  </div>
+  <div class="product-card">
+    <img src="Pleasure BT.JPG" alt="Pleasure Boxy T-Shirt">
+    <span>Boxie T-Shirt</span>
+  </div>
+  
+</section>
+
+<div class="section-title">PSC</div>
+<section class="product-grid">
+  <div class="product-card">
+    <img src="PSC T.JPG" alt="PSC T-Shirt">
+    <span>OVERSIZED T-SHIRT</span>
+  </div>
+  <div class="product-card">
+    <img src="PSC Hat.JPG" alt="PSC HAT">
+    <span>PSC DAD HAT</span>
+  </div>
+</section>
+
+<div class="section-title">CHROME SKULL</div>
+<section class="product-grid">
+  <div class="product-card">
+    <img src="Skull Hoodie.JPG" alt="Chrome Skull Hoodie">
+    <span>OVERSIZED HOODIE</span>
+  </div>
+  <div class="product-card">
+    <img src="Skull T.JPG" alt="Chrome Skull T-Shirt">
+    <span>OVERSIZED T-SHIRT</span>
+  </div>
+</section>
+
+<div class="section-title">PLAZA REDS</div>
+<section class="product-grid">
+  <div class="product-card">
+    <img src="Plaza Red T.JPG" alt="Plaza Reds T-Shirt">
+    <span>FITTED T-SHIRT</span>
+  </div>
+  <div class="product-card">
+    <img src="Plaza Red Button.JPG" alt="Plaza Reds Button">
+    <span>BUTTON</span>
+  </div>
+</section>
+
+<div class="section-title">CLUB 33</div>
+<section class="product-grid">
+  <div class="product-card">
+    <img src="Club 33 T.JPG" alt="Club 33 T-Shirt">
+    <span>FITTED T-SHIRT</span>
+  </div>
+  <div class="product-card">
+    <img src="Club 33 Hat.JPG" alt="Club 33 Dad Hat">
+    <span>DAD HAT</span>
+  </div>
+  <div class="product-card">
+  <img src="Club 33 Button.JPG" alt="Club 33 Button">
+    <span>BUTTON
+    </span>
+  </div>
+</section>
+
+<div class="section-title">FRAMED</div>
+<section class="product-grid">
+  <div class="product-card">
+    <img src="Framed T.JPG" alt="Framed T-Shirt">
+    <span>OVERSIZED T-SHIRT</span>
+  </div>
+  <div class="product-card">
+    <img src="Framed Hoodie.JPG" alt="Framed Hoodie">
+    <span>HOODIE</span>
+  </div>
+</section>
+
+  </main>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    const logo = document.getElementById('logo');
+    const homeLink = document.getElementById('homeLink');
+
+    let open = false;
+
+    menuBtn.addEventListener('click', () => {
+      open = !open;
+      menu.classList.toggle('active', open);
+    });
+
+    homeLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      menu.classList.remove('active');
+      open = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    logo.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('click', () => {
+        window.open(
+          'https://www.redbubble.com/people/PlazaSkateCo/shop',
+          '_blank'
+        );
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      document.querySelector('.scroll-line').style.backgroundPositionY =
+        window.scrollY * 0.4 + 'px';
+    });
+  </script>
+
+</body>
+</html>
